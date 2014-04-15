@@ -37,5 +37,13 @@ define('FOPEN_WRITE_CREATE_STRICT',				'xb');
 define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
 
 
+define('SITE_NAME',	 'INITERROR');
+
+define('NAME_FROM',  'Contato ' . SITE_NAME);
+define('EMAIL_FROM', 'marcelo@marcelod.com.br');
+define('EMAIL_TO',   'marcelo@marcelod.com.br');
+define('EMAIL_BCC',  'marcelo@marcelod.com.br');
+
+
 /* End of file constants.php */
 /* Location: ./application/config/constants.php */

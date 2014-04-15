@@ -25,16 +25,32 @@ class Contato extends CI_Controller {
 		else
 		{
 			$dados = array(
-                'nome'    	=> $this->input->post('nome'),
-                'email'     => $this->input->post('email'),
-                'mensagem'  => $this->input->post('mensagem'),
-                'data'		=> date('Y-m-d H:i:s')
-            );
+	            'nome'    	=> $this->input->post('nome'),
+	            'email'     => $this->input->post('email'),
+	            'mensagem'  => $this->input->post('mensagem'),
+	            'data'		=> date('Y-m-d H:i:s')
+	        );
 
 			$this->load->model('contato_m');
 			$this->contato_m->save($dados);
 
-            redirect('contato/sucesso', 'refresh');
+			// prepara e envia o e-mail
+	        $this->load->library('email');
+	        
+	        $this->email->from(EMAIL_FROM, NAME_FROM);
+	        $this->email->to($dados['email']);
+	        
+	        $this->email->subject('Contato do site: ' . SITE_NAME);
+	        
+	        $message = $this->load->view('email/contato', $dados, TRUE);
+	        $this->email->message($message);
+	        
+	        if( ! $this->email->send() )
+	        {
+	            log_message('error', "E-mail de contato não enviado");
+	        }
+	            
+			redirect('contato/sucesso', 'refresh');
 		}
 	}
 

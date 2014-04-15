@@ -32,12 +32,12 @@
 
             <div class="form-group">
               <label for="nome">*Nome</label>
-              <input type="text" class="form-control" id="nome" name="nome" value="<?php echo set_value('nome'); ?>">
+              <input type="text" class="form-control" id="nome" name="nome" placeholder="Deixe um nome para contato" value="<?php echo set_value('nome'); ?>">
             </div>
 
             <div class="form-group">
               <label for="email">*E-mail</label>
-              <input type="text" class="form-control" id="email" name="email" value="<?php echo set_value('email'); ?>">
+              <input type="text" class="form-control" id="email" name="email" placeholder="Deixe um e-mail para contato" value="<?php echo set_value('email'); ?>">
             </div>
 
             <div class="form-group">
